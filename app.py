@@ -3,18 +3,11 @@ import pandas
 import sklearn
 import pickle
 from flask import Flask,request,render_template
-import os, pickle
 
-base_path = os.path.dirname(__file__)
-
-with open(os.path.join(base_path, 'model.pkl'), 'rb') as f:
-    model = pickle.load(f)
-
-with open(os.path.join(base_path, 'standscaler.pkl'), 'rb') as f:
-    sc = pickle.load(f)
-
-with open(os.path.join(base_path, 'minmaxscaler.pkl'), 'rb') as f:
-    ms = pickle.load(f) = pickle.load(open('minmaxscaler.pkl','rb'))
+# importing model
+model = pickle.load(open('model.pkl','rb'))
+sc = pickle.load(open('standscaler.pkl','rb'))
+ms = pickle.load(open('minmaxscaler.pkl','rb'))
 
 # creating flask app
 app = Flask(__name__)
