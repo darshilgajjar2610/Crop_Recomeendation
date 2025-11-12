@@ -9,6 +9,12 @@ model = pickle.load(open('model.pkl','rb'))
 sc = pickle.load(open('standscaler.pkl','rb'))
 ms = pickle.load(open('minmaxscaler.pkl','rb'))
 
+# When saving
+pickle.dump((model, sc, ms), open("model.pkl", "wb"))
+
+with open("model.pkl", "rb") as file:
+    model, sc, ms = pickle.load(file)
+
 # creating flask app
 app = Flask(__name__)
 
